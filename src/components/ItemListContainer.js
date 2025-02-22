@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getDocs, collection, query, where } from "firebase/firestore";
@@ -47,6 +48,28 @@ const ItemListContainer = ({ greeting }) => {
       </div>
     </div>
   );
+=======
+import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../config/firebase";
+import ItemList from "./ItemList";
+
+const ItemListContainer = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const getItems = async () => {
+      const itemsCollection = collection(db, "items");
+      const itemsSnapshot = await getDocs(itemsCollection);
+      const itemsList = itemsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setItems(itemsList);
+    };
+
+    getItems();
+  }, []);
+
+  return <ItemList items={items} />;
+>>>>>>> 0c8392a876b31af7648094bbfe85c909f4c5695e
 };
 
 export default ItemListContainer;

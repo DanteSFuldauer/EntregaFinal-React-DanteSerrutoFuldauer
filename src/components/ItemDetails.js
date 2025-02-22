@@ -1,6 +1,11 @@
 import ItemCount from "./ItemCount";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
+=======
+
+/* Importamos contexto del carrito de compras */
+>>>>>>> 0c8392a876b31af7648094bbfe85c909f4c5695e
 import { CartContext } from "../context/CartContext";
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
@@ -21,14 +26,22 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
         <div className="card">
             <div className="card-content">
                 <div className="columns is-vcentered">
+<<<<<<< HEAD
                     {/* imagen */}
+=======
+                    {/* Columna para la imagen */}
+>>>>>>> 0c8392a876b31af7648094bbfe85c909f4c5695e
                     <div className="column is-one-third">
                         <figure className="image is-4by3">
                             <img src={img} alt={name} />
                         </figure>
                     </div>
 
+<<<<<<< HEAD
                     {/* datos */}
+=======
+                    {/* Columna para los datos */}
+>>>>>>> 0c8392a876b31af7648094bbfe85c909f4c5695e
                     <div className="column">
                         <div className="content">
                             <h2 className="title is-4">{name}</h2>
@@ -36,8 +49,12 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                             <p className="subtitle is-6">Categoría: {category}</p>
                             <p>Descripción: {description}</p>
                             <p>Precio unitario: ${price}</p>
+<<<<<<< HEAD
 
                             {/* cantidad seleccionada y precio total */}
+=======
+                            {/* Mostrar cantidad seleccionada y precio total */}
+>>>>>>> 0c8392a876b31af7648094bbfe85c909f4c5695e
                             {quantityAdded > 0 && (
                                 <>
                                     <p className="has-text-weight-bold">

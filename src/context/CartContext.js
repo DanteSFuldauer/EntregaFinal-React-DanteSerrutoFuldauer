@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 
+<<<<<<< HEAD
 //Contexto que inicializa un carrito vacío
 export const CartContext = createContext({
   cart: []
@@ -23,10 +24,22 @@ export const CartProvider = ({ children }) => {
   };
 
   //Funcion de eliminación de items
+=======
+export const CartContext = createContext();
+
+export const CartProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (item, quantity) => {
+    setCartItems([...cartItems, { ...item, quantity }]);
+  };
+
+>>>>>>> 0c8392a876b31af7648094bbfe85c909f4c5695e
   const removeItem = (id) => {
     setCartItems(cartItems.filter(item => item.id !== id));
   };
 
+<<<<<<< HEAD
   //Función de vaciado de carrito
   const clearCart = () => setCartItems([]);
 
@@ -39,6 +52,12 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider value={{ cartItems, addItem, removeItem, clearCart, totalQuantity, total }}>
+=======
+  const clearCart = () => setCartItems([]);
+
+  return (
+    <CartContext.Provider value={{ cartItems, addToCart, removeItem, clearCart }}>
+>>>>>>> 0c8392a876b31af7648094bbfe85c909f4c5695e
       {children}
     </CartContext.Provider>
   );
