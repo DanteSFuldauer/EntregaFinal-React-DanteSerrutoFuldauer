@@ -1,4 +1,5 @@
-import { useState, useContext } from "react";
+// Checkout.js
+import { useState, useContext, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
 import CheckoutForm from "./CheckoutForm";
 import { collection, addDoc, Timestamp, writeBatch, getDocs, query, where, documentId } from "firebase/firestore";
@@ -7,17 +8,27 @@ import { db } from "../config/firebase";
 const Checkout = () => {
     const [loading, setLoading] = useState(false);
     const [orderId, setOrderId] = useState("");
+    const { cartItems, total, clearCart } = useContext(CartContext);
 
-    const { cart, total, clearCart } = useContext(CartContext);
+    useEffect(() => {
+        console.log("Contenido del carrito:", cartItems);
+    }, [cartItems]);
 
     const createOrder = async ({ name, lastName, phone, email }) => {
         setLoading(true);
 
         try {
+            if (!cartItems || cartItems.length === 0) {
+                console.error("El carrito está vacío o no se ha inicializado correctamente.");
+                alert("El carrito está vacío o no se ha inicializado correctamente.");
+                setLoading(false);
+                return;
+            }
+
             // Crear  orden
             const order = {
                 buyer: {name, lastName, phone, email},
-                items: cart,
+                items: cartItems,
                 total: total,
                 date: Timestamp.fromDate(new Date())
             };
@@ -25,7 +36,7 @@ const Checkout = () => {
             const batch = writeBatch(db); // Batch para actualizar el stock
             const outOfStock = []; // array de productos sin stock
 
-            const ids = cart.map(prod => prod.id); // obtiene id de los productos en cart 
+            const ids = cartItems.map(prod => prod.id); // obtiene id de los productos en cartItems 
             const productsRef = collection(db, "products"); // referencias a los productos en Firestore
 
             // Obtiene productos del carrito en firestore
@@ -39,8 +50,8 @@ const Checkout = () => {
             docs.forEach(doc => {
                 const dataDoc = doc.data();
                 const stockDb = dataDoc.stock; // stock de cada producto
-                const productAddedToCart = cart.find(prod => prod.id === doc.id); // busca prod del cart en db
-                const prodQuantity = productAddedToCart?.quantity; // cantidad de prod en cart
+                const productAddedToCart = cartItems.find(prod => prod.id === doc.id); // busca prod del cartItems en db
+                const prodQuantity = productAddedToCart?.quantity; // cantidad de prod en cartItems
 
                 if (stockDb >= prodQuantity) { // si hay stock, actualizo la db
                     batch.update(doc.ref, { stock: stockDb - prodQuantity }); 
@@ -50,7 +61,6 @@ const Checkout = () => {
             });
 
             if (outOfStock.length === 0) { // Si todos los prod tienen stock
-              
                 await batch.commit(); // Actualizar stock en Firestore
 
                 const orderRef = collection(db, "orders");

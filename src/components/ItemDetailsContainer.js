@@ -11,8 +11,10 @@ const ItemDetailsContainer = () => {
 
   useEffect(() => {
 
-    //Funcion para obtener prod
+    // Funcion para obtener prod
     const getItem = async () => {
+      setLoading(true); 
+
       const itemDoc = doc(db, "products", itemId); //referencia al prod en db
       const itemSnapshot = await getDoc(itemDoc); //obtiene el doc del prod
 
@@ -21,15 +23,15 @@ const ItemDetailsContainer = () => {
       } else {
         console.log("El producto no existe en la base de datos");
       }
-      
-      setLoading(false);
+
+      setLoading(false); 
     };
 
     getItem();
   }, [itemId]);
 
   if (loading) {
-    <h1 className="text is-size-4">Cargando detalles ...</h1>
+    return <h1 className="text is-size-4">Cargando detalles ...</h1>; 
   }
 
   return item ? <ItemDetails item={item} /> : <h1 className="text is-size-4">Producto no encontrado</h1>;

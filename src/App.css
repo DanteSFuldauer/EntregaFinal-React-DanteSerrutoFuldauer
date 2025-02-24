@@ -1,117 +1,368 @@
-
-/* Estilos generales */
+/* Estilos globales */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Estilo del Navbar */
-  .navbar {
-    background-color: #343a40;
-    color: #ffffff;
-  }
-  
-  .navbar .navbar-brand {
-    color: #ffffff;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .navbar .nav-link {
-    color: #ffffff;
-  }
-  
-  .navbar .nav-link:hover {
-    color: #ffc107;
-  }
-  
-  /* Estilo de los botones */
-  .button {
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .button.is-primary {
-    background-color: #007bff;
-    color: #ffffff;
-  }
-  
-  .button.is-link {
-    background-color: #0056b3;
-    color: #ffffff;
-  }
-  
-  .button.is-warning {
-    background-color: #ffc107;
-    color: #ffffff;
-  }
-  
-  .button.is-danger {
-    background-color: #dc3545;
-    color: #ffffff;
-  }
-  
-  /* Estilo de las tarjetas de productos */
-  .card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-  
-  .card .card-content {
-    padding: 20px;
-  }
-  
-  .card img {
-    max-width: 100%;
-    height: auto;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  
-  .card .title {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-  }
-  
-  .card .subtitle {
-    font-size: 1rem;
-    color: #6c757d;
-    margin-bottom: 10px;
-  }
-  
-  .card p {
-    margin-bottom: 10px;
-  }
-  
-  /* Estilo del carrito */
-  .cart-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  
-  .cart-item img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-  }
-  
-  .cart-item h4 {
-    margin: 0;
-    font-size: 1rem;
-  }
-  
-  .cart-item p {
-    margin: 0 10px;
-  }
-  
-  .total {
-    text-align: right;
-    margin-top: 20px;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+
+
+/* Estilos para NavBar */
+.navbar {
+  background-color: #007bff;
+  padding: 10px;
+}
+
+.navbar .navbar-brand,
+.navbar .navbar-item {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar .navbar-item:hover {
+  background-color: #0056b3;
+}
+
+.navbar .button {
+  margin: 0 5px;
+}
+
+/* Estilos para los ítems */
+.item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.item img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.item h3 {
+  margin-top: 10px;
+  font-size: 1.5em;
+}
+
+/* Estilos para ItemList */
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item-list .item {
+  flex-basis: 30%;
+  margin: 15px 0;
+}
+
+/* Estilos para ItemDetails */
+.item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-details img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.item-details h2 {
+  font-size: 2em;
+  margin-top: 20px;
+}
+
+.item-details p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* Estilos para ItemCount */
+.item-count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-count button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.item-count button:hover {
+  background-color: #0056b3;
+}
+
+.item-count input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Estilos para Cart */
+.cart {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.total h3 {
+  font-size: 1.5em;
+  color: #007bff;
+}
+
+/* Estilos para CartItem */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item img {
+  max-width: 100px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+/* Estilos para CartWidget */
+.cart-widget {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cart-widget .cart-icon {
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.cart-widget .cart-count {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 0.9em;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+/* Estilos para Checkout */
+.checkout {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkout h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* Estilos para CheckoutForm */
+.checkout-form .field {
+  margin-bottom: 15px;
+}
+
+.checkout-form .label {
+  font-weight: bold;
+}
+
+.checkout-form .input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+}
+
+/* Estilos para los botones */
+.button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.button.is-light {
+  background-color: #f8f9fa;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.button.is-light:hover {
+  background-color: #e2e6ea;
+}
+
+/* Estilos para ItemDetail */
+.item-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-detail img {
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.item-detail .content {
+  flex: 1;
+}
+
+/* Estilos para ItemListContainer */
+.item-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.item-list-container .item {
+  flex: 1 1 calc(33.333% - 20px);
+  box-sizing: border-box;
+}
+
+/* Otros estilos necesarios */
+.message {
+  margin-top: 20px;
+}
+
+.message-header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+}
+
+.message-body {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 0 0 5px 5px;
+  background-color: #f8f9fa;
+}
+
+/* Estilos para el encabezado y cuerpo de mensaje */
+.message-header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+}
+
+.message-body {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 0 0 5px 5px;
+  background-color: #f8f9fa;
+}
+
+/* Estilos para CartContext */
+.cart-context .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-context .item img {
+  max-width: 50px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-container {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Espacio entre los cards */
+  justify-content: space-between;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 250px; /* Ancho fijo para todas las tarjetas */
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Asegura que el contenido ocupe toda la altura del card */
+  text-align: center;
+}
+
+.card .title {
+  white-space: normal;
+  word-wrap: break-word; 
+}

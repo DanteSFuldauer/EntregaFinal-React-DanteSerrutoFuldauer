@@ -20,9 +20,11 @@ const ItemListContainer = ({ greeting }) => {
           : collection(db, "products");
 
         const response = await getDocs(collectionRef);
-        const itemsAdapted = response.docs.map((doc) => ({
-          id: doc.id, ...doc.data(),
-        }));
+        const itemsAdapted = response.docs.map((doc) => {
+          const data = doc.data();
+          console.log('Product data:', data);
+          return {id: doc.id, ...data};
+        });
 
         setItems(itemsAdapted);
       } catch (error) {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CheckoutForm = ({ onConfirm }) => {
     const [name, setName] = useState("");
@@ -11,9 +12,11 @@ const CheckoutForm = ({ onConfirm }) => {
 
         const userData = {
             name, lastName, phone, email
-        }
+        };
+        console.log("Datos del usuario: ", userData);
         onConfirm(userData);
-    }
+    };
+
     return (
         <div className="container">
             <form onSubmit={handleConfirm}>
@@ -31,7 +34,6 @@ const CheckoutForm = ({ onConfirm }) => {
                         required 
                         />
                     </div>
-
                 </div>
 
                 {/* Apellido */}
@@ -81,15 +83,15 @@ const CheckoutForm = ({ onConfirm }) => {
                 {/* Boton submit */}
                 <div className="field is-grouped  my-5">
                     <p className="control">
-                        <button className="button is-link">Submit</button>
+                        <button className="button is-link" type="submit">Submit</button>
                     </p>
                     <p className="control">
-                        <a className="button is-light">Cancel</a>
+                        <Link to="/cart" className="button is-danger">Cancelar</Link>
                     </p>
                 </div>
             </form>
         </div>
-    )
-}
+    );
+};
 
 export default CheckoutForm;

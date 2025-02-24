@@ -3,7 +3,8 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
-const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
+const ItemDetail = ({ item }) => {
+    const { id, name, img, category, description, price, stock } = item;
     const [quantityAdded, setQuantityAdded] = useState(0);
 
     const { addItem } = useContext(CartContext);
@@ -14,6 +15,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
         const item = {
             id, name, price, img
         };
+        console.log('Adding item to cart:', handleOnAdd);
         addItem(item, quantity);
     };
 

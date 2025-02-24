@@ -20,7 +20,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             <span className="level-item is-size-4">{quantity}</span>
             <button onClick={handleIncrease} className="button is-success level-item is-small" style={{width:"auto"}}>+</button>
         </div>
-        <div class="mt-3">
+        <div className="mt-3">
             <button onClick={handleAdd} disabled={!stock} className="button is-primary" style={{width:"auto"}}>Agregar al carrito</button>
 
             {/* si no hay stock */}
