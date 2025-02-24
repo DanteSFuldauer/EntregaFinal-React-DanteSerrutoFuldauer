@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 0c8392a876b31af7648094bbfe85c909f4c5695e
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
