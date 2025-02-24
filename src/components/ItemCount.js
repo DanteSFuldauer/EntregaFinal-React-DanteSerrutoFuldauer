@@ -11,7 +11,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     if (quantity > initial) setQuantity(quantity - 1);
   };
 
-<<<<<<< HEAD
   const handleAdd = () => { onAdd(quantity); }
 
   return(
@@ -31,16 +30,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         </div>
     </div>
   )
-=======
-  return (
-    <div className="item-count">
-      <button onClick={handleDecrease}>-</button>
-      <span>{quantity}</span>
-      <button onClick={handleIncrease}>+</button>
-      <button onClick={() => onAdd(quantity)}>Agregar al carrito</button>
-    </div>
-  );
->>>>>>> 0c8392a876b31af7648094bbfe85c909f4c5695e
 };
 
 export default ItemCount;

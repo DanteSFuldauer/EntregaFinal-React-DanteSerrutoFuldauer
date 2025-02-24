@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
@@ -20,16 +19,4 @@ const CartWidget = () => {
 };
 
 export default CartWidget; 
-=======
-const CartWidget = ({ cartCount }) => {
-    return (
-      <div className="cart-widget">
-        <span>🛒</span>
-        <span>{cartCount}</span>
-      </div>
-    );
-  };
-  
-  export default CartWidget;
->>>>>>> 0c8392a876b31af7648094bbfe85c909f4c5695e
   
